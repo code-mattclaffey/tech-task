@@ -12,8 +12,8 @@ type PropsForLocation = {
     location: string,
     city: string,
     country: string,
-    measurements: string,
-};
+    measurements: Array<any>
+}
 
 const Location: React.FunctionComponent<PropsForLocation> = ({ location, city, measurements, country }) => (
     <li className="c-selected-locations__location">
@@ -30,8 +30,8 @@ const Location: React.FunctionComponent<PropsForLocation> = ({ location, city, m
             <span className="c-selected-locations__attr">
                 in {city}, {country}
             </span>
-            <span className="c-selected-locations__attr u-text--semibold">
-                Values: {measurements}
+            <span className="c-selected-locations__attr u-text--semibold u-text--uppercase">
+                <span className="u-text--captilize">Values:</span> {measurements.map(({ parameter, value }) => `${parameter}: ${value}`).join(', ')}
             </span>
         </Card>
     </li>
@@ -42,7 +42,7 @@ export const SelectedLocations: React.FunctionComponent<PropsForSelectedLocation
 
     return (
         <ul className="c-selected-locations">
-            {selectedLocations.map((item) => <Location {...item} />)}
+            {selectedLocations.map(({ location, city, measurements, country }) => <Location key={location + city} city={city} location={location} measurements={measurements} country={country} />)}
         </ul>
     );
 };

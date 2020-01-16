@@ -8,6 +8,10 @@
     text-transform: uppercase;
 }
 
+.u-text--captilize {
+    text-transform: capitalize;
+}
+
 .u-text--semibold {
     font-weight: var(--base-font-weight-semibold);
 }

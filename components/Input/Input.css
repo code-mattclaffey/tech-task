@@ -1,0 +1,43 @@
+/* Input General Styles */
+
+:root {
+    --input-border-radius: 5px;
+    --input-padding: 15px 10px;
+    --input-border: 2px solid var(--keyline);
+}
+
+
+.c-input__container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 20px auto;
+    position: relative;
+}
+
+.c-input__container--thin {
+    max-width: 400px;
+    width: 100%;
+}
+
+.c-input {
+    box-sizing: border-box;
+    border-radius: var(--input-border-radius);
+    display: block;
+	background: var(--white);
+	margin-bottom: 4%;
+    border: var(--input-border);
+    margin: 0;
+	padding: var(--input-padding);
+}
+
+.c-input__container--has-icon .c-input {
+    padding-left: 50px;
+}
+
+.c-input__container--has-icon svg {
+    color: var(--keyline);
+    left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

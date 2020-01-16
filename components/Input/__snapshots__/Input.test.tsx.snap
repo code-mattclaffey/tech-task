@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> should match snapshot 1`] = `
+<div>
+  <input
+    class="c-input"
+    id="input"
+    name="input"
+    type="text"
+  />
+</div>
+`;
+
+exports[`<Input /> should match snapshot when type is changed 1`] = `
+<div>
+  <input
+    class="c-input"
+    id="input"
+    name="input"
+    type="number"
+  />
+</div>
+`;
+
+exports[`<InputWrapper /> should match snapshot 1`] = `
+<div>
+  <div
+    class="c-input__container"
+  >
+    <input
+      class="c-input"
+      id="input"
+      name="input"
+      type="number"
+    />
+    <label
+      class="c-input__container"
+      for="input"
+    >
+      Some Label Text
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<Label /> should match snapshot 1`] = `
+<div>
+  <label
+    class="c-input__container"
+    for="input"
+  >
+    Some Label Text
+  </label>
+</div>
+`;

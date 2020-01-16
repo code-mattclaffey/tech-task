@@ -2,4 +2,12 @@
 
 :root {
     --selected-location-heading: #a22cb9;
+    --base-font-size: 18px;
+}
+
+
+@media screen and (min-width: 40em) {
+    :root {
+        --base-font-size: 22px;
+    }
 }
