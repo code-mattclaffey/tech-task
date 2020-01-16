@@ -1,7 +1,6 @@
 import * as React from "react";
 import Layout from "../components/Layout/Layout";
 import { NextPage } from "next";
-import { Search } from "react-feather";
 
 // Todo: Titan Tooling needs type definintions added to the npm module.
 // @ts-ignore
@@ -12,7 +11,8 @@ import "../styles/index.css";
 import { Intro } from "../components/Intro";
 import { SelectedLocations } from "../components/SelectedLocations";
 import { LocationsProvider } from '../components/LocationsContext';
-import { InputWrapper, Input, Label } from "../components/Input";
+import { SearchSuggestions } from "../components/SearchSuggestions";
+
 
 const IndexPage: NextPage = () => {
   return (
@@ -30,11 +30,7 @@ const IndexPage: NextPage = () => {
                   Compare air quality between cities in the UK. <br />
                   Select cities to compare using the search tool below. 
                 </Intro>
-                <InputWrapper hasIcon width="thin">
-                  <Search size={30} />
-                  <Input name="search-term" id="search-term" placeholder="Enter a city name" />
-                  <Label htmlFor="search-term" additionalClassNames="u-visually-hidden">Enter a city name</Label>
-                </InputWrapper>
+                <SearchSuggestions />
               </GridItem>
               <GridItem columns={{ xs: '12' }}>
                 <SelectedLocations />

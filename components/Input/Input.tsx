@@ -6,7 +6,7 @@ type InputProps = {
     name: string,
     id: string,
     additionalClassNames?: string,
-    placeholder?: string
+    rest?: any
 };
 
 type InputWrapperProps = {
@@ -43,10 +43,10 @@ export const Label: React.FunctionComponent<LabelProps> = ({ additionalClassName
     );
 };
 
-export const Input: React.FunctionComponent<InputProps> = ({ type = "text", name, id, additionalClassNames, placeholder, ...rest }) => {
+export const Input: React.FunctionComponent<InputProps> = ({ type = "text", name, id, additionalClassNames, ...rest }) => {
     const classes = classNames('c-input', additionalClassNames);
 
     return (
-        <input type={type} name={name} id={id} className={classes} placeholder={placeholder} {...rest} />
+        <input type={type} name={name} id={id} className={classes} {...rest} />
     );
 }

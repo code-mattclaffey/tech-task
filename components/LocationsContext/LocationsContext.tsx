@@ -4,7 +4,44 @@ type ProviderProps = {};
 
 const initialContext = {
   searchTerm: "",
-  searchResults: [],
+  searchResults: [
+    {
+      "city": "Amsterdam",
+      "country": "NL",
+      "count": 21301,
+      "locations": 14
+    },
+    {
+      "city": "Badhoevedorp",
+      "country": "NL",
+      "count": 2326,
+      "locations": 1
+    },
+    {
+      "city": "Amsterdam",
+      "country": "NL",
+      "count": 21301,
+      "locations": 14
+    },
+    {
+      "city": "Badhoevedorp",
+      "country": "NL",
+      "count": 2326,
+      "locations": 1
+    },
+    {
+      "city": "Amsterdam",
+      "country": "NL",
+      "count": 21301,
+      "locations": 14
+    },
+    {
+      "city": "Badhoevedorp",
+      "country": "NL",
+      "count": 2326,
+      "locations": 1
+    },
+  ],
   selectedLocations: [
     {
       location: "Punjabi Bagh",
@@ -46,7 +83,8 @@ const initialContext = {
         }
       ]
     }
-  ]
+  ],
+  setSearchTerm: () => null
 };
 
 export const LocationsContext = React.createContext(initialContext);
@@ -54,10 +92,17 @@ export const LocationsContext = React.createContext(initialContext);
 export const LocationsProvider: React.FunctionComponent<ProviderProps> = ({
   children
 }) => {
-  const [state] = useState(initialContext);
+  const [state, setState] = useState(initialContext);
+
+  const setSearchTerm: any = ({ currentTarget }: any) => {
+    const searchTerm = currentTarget.value;
+    setState({ ...state, searchTerm });
+  };
+
+  const data = { ...state, setSearchTerm };
 
   return (
-    <LocationsContext.Provider value={{ ...state }}>
+    <LocationsContext.Provider value={data}>
       {children}
     </LocationsContext.Provider>
   );

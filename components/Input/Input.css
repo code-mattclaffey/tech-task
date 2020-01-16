@@ -10,13 +10,7 @@
 .c-input__container {
     display: flex;
     flex-direction: column-reverse;
-    margin: 20px auto;
     position: relative;
-}
-
-.c-input__container--thin {
-    max-width: 400px;
-    width: 100%;
 }
 
 .c-input {
@@ -40,4 +34,5 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 4;
 }
