@@ -9,11 +9,11 @@ type Props = {
     additionalClassNames?: string;
 };
 
-export const Card: React.FunctionComponent<Props> = ({ additionalClassNames, children }) => {
+export const Card: React.FunctionComponent<Props> = ({ additionalClassNames, children, ...rest }) => {
     const classes = classNames('c-card', additionalClassNames);
 
     return (
-        <div className={classes}>
+        <div className={classes} {...rest}>
             {children}
         </div>
     );

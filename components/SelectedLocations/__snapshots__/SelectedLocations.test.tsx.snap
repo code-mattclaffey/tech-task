@@ -10,11 +10,12 @@ exports[`<SelectedLocations /> should match snapshot 1`] = `
     >
       <div
         class="c-card"
+        data-testid="selected-location"
       >
         <button
-          aria-label="Remove {city name} from the selected locations list"
+          aria-label="Remove Punjabi Bagh from the selected locations list"
           class="c-button c-button--plain c-button--small c-selected-locations__remove-city-btn"
-          data-testid="c-button"
+          data-testid="remove-btn"
           type="button"
         >
           <svg
