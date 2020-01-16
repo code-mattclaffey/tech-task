@@ -2,7 +2,8 @@
 
 exports[`<SearchSuggestions /> should match snapshot 1`] = `
 <div>
-  <div
+  <form
+    action=""
     class="c-search-suggestions"
   >
     <div
@@ -49,56 +50,7 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
     <div
       class="c-search-suggestions__results"
       id="search-results"
-    >
-      <div
-        class="c-search-suggestions__option"
-        id="Amsterdam-0"
-        role="option"
-        tabindex="-1"
-      >
-        Amsterdam
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        id="Badhoevedorp-1"
-        role="option"
-        tabindex="-1"
-      >
-        Badhoevedorp
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        id="Amsterdam-2"
-        role="option"
-        tabindex="-1"
-      >
-        Amsterdam
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        id="Badhoevedorp-3"
-        role="option"
-        tabindex="-1"
-      >
-        Badhoevedorp
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        id="Amsterdam-4"
-        role="option"
-        tabindex="-1"
-      >
-        Amsterdam
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        id="Badhoevedorp-5"
-        role="option"
-        tabindex="-1"
-      >
-        Badhoevedorp
-      </div>
-    </div>
-  </div>
+    />
+  </form>
 </div>
 `;

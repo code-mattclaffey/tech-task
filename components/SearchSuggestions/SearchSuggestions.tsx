@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Search } from "react-feather";
+
 import { InputWrapper, Input, Label } from "../Input";
 import { LocationsContext } from '../LocationsContext/LocationsContext';
 
@@ -14,16 +15,17 @@ const SearchOptions: React.FunctionComponent<SearchOptionProps> = ({ city, index
 }
 
 export const SearchSuggestions: React.FunctionComponent<Props> = () => {
-    const { searchTerm, setSearchTerm, searchResults } = useContext(LocationsContext);
+    const { searchTerm, setSearchTerm, searchResults, getLocationsKeyUpEvent } = useContext(LocationsContext);
 
     const inputProps = {
         defaultValue: searchTerm,
-        onKeyUp: setSearchTerm,
+        onKeyUp: (event: any) => getLocationsKeyUpEvent(event),
+        onChange: setSearchTerm,
         placeholder: "Enter a city name"
     };
 
     return (
-        <div className="c-search-suggestions">
+        <form action="" className="c-search-suggestions">
             <InputWrapper hasIcon width="thin">
                 <Search size={30} />
                 <Input name="search-term" id="search-term" {...inputProps} />
@@ -32,6 +34,6 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
             <div id="search-results" className="c-search-suggestions__results">
                 {searchResults.map(({ city }, index) => <SearchOptions city={city} index={index} key={city + index}/>)}
             </div>
-        </div>
+        </form>
     );
 }

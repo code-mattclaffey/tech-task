@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { SearchSuggestions } from '.';
-import { LocationsProvider } from '../LocationsContext/LocationsContext';
+import { App } from '../App';
 
 afterEach(() => {
     cleanup();
@@ -10,9 +10,9 @@ afterEach(() => {
 describe('<SearchSuggestions />', () => {
     it('should match snapshot', () => {
         const { container } = render(
-            <LocationsProvider>
+            <App>
                 <SearchSuggestions />
-            </LocationsProvider>
+            </App>
         );
 
         expect(container).toMatchSnapshot();

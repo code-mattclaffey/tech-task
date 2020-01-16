@@ -10,14 +10,13 @@ import "@titan-tooling/ui/dist/css/main.css";
 import "../styles/index.css";
 import { Intro } from "../components/Intro";
 import { SelectedLocations } from "../components/SelectedLocations";
-import { LocationsProvider } from '../components/LocationsContext';
+import { App } from '../components/App';
 import { SearchSuggestions } from "../components/SearchSuggestions";
-
 
 const IndexPage: NextPage = () => {
   return (
     <Layout title="Compare your Air">
-      <LocationsProvider>
+      <App>
         <Region
           style={{
             "--region-text-color": "var(--white)"
@@ -38,7 +37,7 @@ const IndexPage: NextPage = () => {
             </Grid>
           </RegionInner>
         </Region>
-      </LocationsProvider>
+      </App>
     </Layout>
   );
 };
