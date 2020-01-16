@@ -3,3 +3,15 @@
 .u-text--align-center {
     text-align: center;
 }
+
+.u-text--uppercase {
+    text-transform: uppercase;
+}
+
+.u-text--semibold {
+    font-weight: var(--base-font-weight-semibold);
+}
+
+.u-text--small {
+    font-size: 0.75em;
+}

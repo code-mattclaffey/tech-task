@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> should match snapshot 1`] = `
+<div>
+  <div
+    class="c-card"
+  >
+    This is some jsx content
+  </div>
+</div>
+`;

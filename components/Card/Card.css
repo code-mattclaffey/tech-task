@@ -1,0 +1,20 @@
+/* Card Component Styles */
+
+:root {
+    --card-bg: var(--white);
+    --card-border-raidius: 5px;
+    --card-padding: 20px;
+}
+
+@media screen and (min-width: 40em) {
+    :root {
+        --card-padding: 30px;
+    }
+}
+
+.c-card {
+    background: var(--card-bg);
+    border-radius: var(--card-border-raidius);
+    color: var(--primary);
+    padding: var(--card-padding);
+}

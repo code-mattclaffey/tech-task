@@ -1,0 +1,53 @@
+/* Selected Locations */
+
+.c-selected-locations {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 40px 0 0 0;
+    padding-left: 0;
+}
+
+@media screen and (min-width: 40em) {
+    .c-selected-locations {
+        flex-direction: row;
+    }
+}
+
+.c-selected-locations__location {
+    margin-bottom: var(--grid-gap);
+    position: relative;
+}
+
+.c-selected-locations .c-selected-locations__location:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 40em) {
+    .c-selected-locations__location {
+        width: calc(50% - 10px);
+    }
+
+    .c-selected-locations .c-selected-locations__location:nth-child(odd) {
+        margin-right: 10px;
+    }
+
+    .c-selected-locations .c-selected-locations__location:nth-child(even) {
+        margin-left: 10px;
+    }
+}
+
+.c-selected-locations__remove-city-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.c-selected-locations__attr {
+    display: block;
+}
+
+.c-selected-locations__attr--heading {
+    color: var(--selected-location-heading);
+    margin: 10px 0;
+}

@@ -1,4 +1,7 @@
 /* Main Entry File */
 
+@import "./_settings/_settings.tokens.css";
 @import "./_objects/_objects.region.extended.css";
-@import "./_utils/_utils.text.css"
+@import "./_utils/_utils.text.css";
+@import "../components/Card/Card.css";
+@import "../components/SelectedLocations/SelectedLocations.css";
