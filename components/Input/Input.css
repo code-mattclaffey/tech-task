@@ -14,12 +14,13 @@
 }
 
 .c-input {
+	background: var(--white);
     box-sizing: border-box;
+    border: var(--input-border);
     border-radius: var(--input-border-radius);
     display: block;
-	background: var(--white);
+    font-size: 0.8em;
 	margin-bottom: 4%;
-    border: var(--input-border);
     margin: 0;
 	padding: var(--input-padding);
 }

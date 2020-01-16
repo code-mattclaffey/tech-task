@@ -30,6 +30,7 @@
 }
 
 .c-search-suggestions__option {
+    cursor: pointer;
     font-size: 0.75em;
     padding: 10px 20px;
 }

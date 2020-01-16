@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchSuggestions /> should match snapshot 1`] = `
+<div>
+  <div
+    class="c-search-suggestions"
+  >
+    <div
+      class="c-input__container c-input__container--has-icon c-input__container--thin"
+    >
+      <svg
+        fill="none"
+        height="30"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="30"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+      <input
+        class="c-input"
+        id="search-term"
+        name="search-term"
+        placeholder="Enter a city name"
+        type="text"
+        value=""
+      />
+      <label
+        class="c-label u-visually-hidden"
+        for="search-term"
+      >
+        Enter a city name
+      </label>
+    </div>
+    <div
+      class="c-search-suggestions__results"
+      id="search-results"
+    >
+      <div
+        class="c-search-suggestions__option"
+        id="Amsterdam-0"
+        role="option"
+        tabindex="-1"
+      >
+        Amsterdam
+      </div>
+      <div
+        class="c-search-suggestions__option"
+        id="Badhoevedorp-1"
+        role="option"
+        tabindex="-1"
+      >
+        Badhoevedorp
+      </div>
+      <div
+        class="c-search-suggestions__option"
+        id="Amsterdam-2"
+        role="option"
+        tabindex="-1"
+      >
+        Amsterdam
+      </div>
+      <div
+        class="c-search-suggestions__option"
+        id="Badhoevedorp-3"
+        role="option"
+        tabindex="-1"
+      >
+        Badhoevedorp
+      </div>
+      <div
+        class="c-search-suggestions__option"
+        id="Amsterdam-4"
+        role="option"
+        tabindex="-1"
+      >
+        Amsterdam
+      </div>
+      <div
+        class="c-search-suggestions__option"
+        id="Badhoevedorp-5"
+        role="option"
+        tabindex="-1"
+      >
+        Badhoevedorp
+      </div>
+    </div>
+  </div>
+</div>
+`;

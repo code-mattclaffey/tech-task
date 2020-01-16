@@ -34,7 +34,7 @@ exports[`<InputWrapper /> should match snapshot 1`] = `
       type="number"
     />
     <label
-      class="c-input__container"
+      class="c-label"
       for="input"
     >
       Some Label Text
@@ -46,7 +46,7 @@ exports[`<InputWrapper /> should match snapshot 1`] = `
 exports[`<Label /> should match snapshot 1`] = `
 <div>
   <label
-    class="c-input__container"
+    class="c-label"
     for="input"
   >
     Some Label Text
