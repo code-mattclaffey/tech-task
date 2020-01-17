@@ -3,6 +3,7 @@ import { Search } from "react-feather";
 import { InputWrapper, Input, Label } from "../Input";
 import classNames from "classnames";
 import { SearchContext } from "../SearchContext/SearchContext";
+import debounce from 'lodash.debounce';
 
 type Props = {};
 type SearchOptionProps = {
@@ -44,13 +45,15 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
         setSearchTerm,
         searchResults,
         handleKeyUpEvent,
-        optionCurrentlyInFocus
+        optionCurrentlyInFocus,
+        resetSearchResults
     } = useContext(SearchContext);
 
     const inputProps = {
         defaultValue: searchTerm,
         onKeyUp: handleKeyUpEvent,
         onChange: setSearchTerm,
+        onBlur: debounce(resetSearchResults, 200),
         placeholder: "Enter a city name",
         "data-testid": "search-result-input",
     };

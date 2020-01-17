@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { getLocations, getLatestParametersFromCity } from "../../apis/api";
 import { LocationsContext } from '../LocationsContext/LocationsContext';
 
@@ -40,9 +40,18 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         optionCurrentlyInFocus: 0
     });
 
+    useEffect(() => {
+        document.addEventListener('click', (event: any) => {
+            if (!event.target.classList.contains('c-search-suggestions__option')) {
+                resetSearchResults();
+            }
+        });
+    }, []);
+
     const handleArrowDownEvent = () => {
         const { optionCurrentlyInFocus, searchResults } = state;
         let newFocusNumber = optionCurrentlyInFocus + 1;
+
         if (newFocusNumber === searchResults.length) {
             newFocusNumber = 0;
         }
@@ -94,7 +103,7 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
 
         getLocations(searchTerm).then(({ results }) => {
             const searchResults = results.reduce(reduceDulplicateCities, []);
-            setState({ ...state, searchTerm, searchResults });
+            setState({ ...state, searchTerm, searchResults, optionCurrentlyInFocus: 0 });
         });
     };
 
