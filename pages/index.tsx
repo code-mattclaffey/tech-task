@@ -12,31 +12,35 @@ import { Intro } from "../components/Intro";
 import { SelectedLocations } from "../components/SelectedLocations";
 import { App } from '../components/App';
 import { SearchSuggestions } from "../components/SearchSuggestions";
+import { SearchContextProvider } from "../components/SearchContext/SearchContext";
 
 const IndexPage: NextPage = () => {
   return (
     <Layout title="Compare your Air">
       <App>
-        <Region
-          style={{
-            "--region-text-color": "var(--white)"
-          }}
-        >
-          <RegionInner additionalClassNames="o-region--full-height o-region--center-screen">
-            <Grid>
-              <GridItem columns={{ xs: '12' }}>
-                <Intro title="Composer of Air">
-                  Compare air quality between cities in the UK. <br />
-                  Select cities to compare using the search tool below. 
-                </Intro>
-                <SearchSuggestions />
-              </GridItem>
-              <GridItem columns={{ xs: '12' }}>
-                <SelectedLocations />
-              </GridItem>
-            </Grid>
-          </RegionInner>
-        </Region>
+        <SearchContextProvider>
+          <Region
+            style={{
+              "--region-text-color": "var(--white)"
+            }}
+            additionalClassNames="o-region--center-screen"
+          >
+            <RegionInner>
+              <Grid>
+                <GridItem columns={{ xs: '12' }}>
+                  <Intro title="Composer of Air">
+                    Compare air quality between cities in the UK. <br />
+                    Select cities to compare using the search tool below. 
+                  </Intro>
+                  <SearchSuggestions />
+                </GridItem>
+                <GridItem columns={{ xs: '12' }}>
+                  <SelectedLocations />
+                </GridItem>
+              </Grid>
+            </RegionInner>
+          </Region>
+        </SearchContextProvider>
       </App>
     </Layout>
   );
