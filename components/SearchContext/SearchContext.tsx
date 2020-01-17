@@ -9,7 +9,8 @@ export const SearchContext = React.createContext({
     setSearchTerm: () => null,
     handleKeyUpEvent: (event: any) => event,
     resetSearchResults: () => null,
-    selectLocation: (city: string) => city
+    selectLocation: (city: string) => city,
+    optionCurrentlyInFocus: 0
 });
 
 type ProviderProps = {};
@@ -36,16 +37,55 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
     const [state, setState] = useState({
         searchTerm: "",
         searchResults: [],
+        optionCurrentlyInFocus: 0
     });
 
-    const setSearchTerm: any = ({ currentTarget }: any) => {
-        const searchTerm = currentTarget.value;
+    const handleArrowDownEvent = () => {
+        const { optionCurrentlyInFocus, searchResults } = state;
+        let newFocusNumber = optionCurrentlyInFocus + 1;
+        if (newFocusNumber === searchResults.length) {
+            newFocusNumber = 0;
+        }
+
+        setState({ ...state, optionCurrentlyInFocus: newFocusNumber })
+    };
+
+    const handleArrowUpEvent = () => {
+        const { optionCurrentlyInFocus, searchResults } = state;
+        let newFocusNumber = optionCurrentlyInFocus;
+
+        if (newFocusNumber === 0) {
+            newFocusNumber = searchResults.length - 1;
+        } else {
+            newFocusNumber = newFocusNumber - 1;
+        }
+
+        setState({ ...state, optionCurrentlyInFocus: newFocusNumber });
+    };
+
+    const setSearchTerm: any = (event: any) => {
+        event.preventDefault();
+        const searchTerm = event.currentTarget.value;
         setState({ ...state, searchTerm });
     };
 
     const handleKeyUpEvent = (event: any) => {
-        console.log(event.keyCode);
         const { searchTerm } = state;
+
+        if (event.keyCode === 27) {
+            resetSearchResults();
+            return;
+        }
+
+        if (event.keyCode === 40) {
+            handleArrowDownEvent();
+            return;
+        }
+
+        if (event.keyCode === 38) {
+            handleArrowUpEvent();
+            return;
+        }
 
         if (searchTerm.length === 0) {
             setState({ ...state, searchTerm, searchResults: [] });

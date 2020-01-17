@@ -35,6 +35,10 @@
     padding: 10px 20px;
 }
 
+.c-search-suggestions__option:focus {
+    outline: 0;
+}
+
 
 .c-search-suggestions__option:hover,
 .c-search-suggestions__option--focus {

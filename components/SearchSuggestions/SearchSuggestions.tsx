@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Search } from "react-feather";
 import { InputWrapper, Input, Label } from "../Input";
 import classNames from "classnames";
@@ -44,28 +44,16 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
         setSearchTerm,
         searchResults,
         handleKeyUpEvent,
+        optionCurrentlyInFocus
     } = useContext(SearchContext);
-
-    const [state, setState] = useState({
-        optionCurrentlyInFocus: 0
-    });
-    
-    const updateOptionFocus = () => {
-        let { optionCurrentlyInFocus: newIndex } = state;
-
-        setState({ optionCurrentlyInFocus: newIndex++ })
-    };
 
     const inputProps = {
         defaultValue: searchTerm,
         onKeyUp: handleKeyUpEvent,
         onChange: setSearchTerm,
         placeholder: "Enter a city name",
-        onKeyDown: updateOptionFocus,
         "data-testid": "search-result-input",
     };
-
-    const { optionCurrentlyInFocus } = state;
 
     return (
         <form action="" className="c-search-suggestions" autoComplete="off">

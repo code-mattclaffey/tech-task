@@ -1,3 +1,3 @@
 # Tech Challenge
-
+[![Build Status](https://travis-ci.org/code-mattclaffey/tech-challenge.png?branch=master)](https://travis-ci.org/{code-mattclaffey}/tech-challenge)
 > Readme todo...
