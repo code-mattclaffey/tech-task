@@ -41,7 +41,6 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
         />
       </svg>
       <input
-        aria-autocomplete="list"
         class="c-input"
         data-testid="search-result-input"
         id="search-term"
@@ -62,91 +61,6 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
       id="search-results"
       role="listbox"
     />
-  </form>
-</div>
-`;
-
-exports[`<SearchSuggestions /> should render options when the app has searchResults 1`] = `
-<div>
-  <form
-    action=""
-    autocomplete="off"
-    class="c-search-suggestions"
-  >
-    <div
-      class="c-input__container c-input__container--has-icon c-input__container--thin"
-    >
-      <div
-        aria-live="polite"
-        class="u-visually-hidden"
-        role="status"
-      >
-        'There are 2 suggestions. Use the up and down arrows to browse.'
-      </div>
-      <svg
-        fill="none"
-        height="30"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        width="30"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="11"
-          cy="11"
-          r="8"
-        />
-        <line
-          x1="21"
-          x2="16.65"
-          y1="21"
-          y2="16.65"
-        />
-      </svg>
-      <input
-        aria-autocomplete="list"
-        class="c-input"
-        data-testid="search-result-input"
-        id="search-term"
-        name="search-term"
-        placeholder="Enter a city name"
-        type="text"
-        value=""
-      />
-      <label
-        class="c-label u-visually-hidden"
-        for="search-term"
-      >
-        Enter a city name
-      </label>
-    </div>
-    <div
-      class="c-search-suggestions__results"
-      id="search-results"
-      role="listbox"
-    >
-      <div
-        class="c-search-suggestions__option c-search-suggestions__option--focus"
-        data-testid="search-option-0"
-        id="Amsterdam-0"
-        role="option"
-        tabindex="-1"
-      >
-        Amsterdam
-      </div>
-      <div
-        class="c-search-suggestions__option"
-        data-testid="search-option-1"
-        id="Badhoevedorp-1"
-        role="option"
-        tabindex="-1"
-      >
-        Badhoevedorp
-      </div>
-    </div>
   </form>
 </div>
 `;

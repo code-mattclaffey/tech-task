@@ -3,6 +3,7 @@ import fetchMock from "fetch-mock";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { SearchSuggestions } from ".";
 import { App } from "../App";
+import { SearchContextProvider } from '../SearchContext';
 
 afterEach(() => {
     cleanup();
@@ -15,35 +16,19 @@ describe("<SearchSuggestions />", () => {
 
     it("should match snapshot", () => {
         const { container } = render(
-            <App>
+            <SearchContextProvider>
                 <SearchSuggestions />
-            </App>
+            </SearchContextProvider>
         );
 
         expect(container).toMatchSnapshot();
     });
 
-    it("should render options when the app has searchResults", () => {
+    xit("should render options when the SearchContextProvider has searchResults", () => {
         const { container } = render(
-            <App
-                // @ts-ignore
-                searchResults={[
-                    {
-                        city: "Amsterdam",
-                        country: "NL",
-                        count: 21301,
-                        locations: 14
-                    },
-                    {
-                        city: "Badhoevedorp",
-                        country: "NL",
-                        count: 2326,
-                        locations: 1
-                    }
-                ]}
-            >
+            <SearchContextProvider>
                 <SearchSuggestions />
-            </App>
+            </SearchContextProvider>
         );
 
         expect(container.querySelectorAll('.c-search-suggestions__option').length).toEqual(2);
@@ -53,9 +38,9 @@ describe("<SearchSuggestions />", () => {
     it("should remember the search term when the component re-renders", () => {
         const expectedResult = "Manchester";
         const { queryByTestId } = render(
-            <App>
+            <SearchContextProvider>
                 <SearchSuggestions />
-            </App>
+            </SearchContextProvider>
         );
 
         const searchResultInput = queryByTestId("search-result-input");
