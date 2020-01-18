@@ -1,5 +1,5 @@
 # Tech Challenge
-[![Build Status](https://travis-ci.org/code-mattclaffey/tech-challenge.png?branch=master)](https://travis-ci.org/{code-mattclaffey}/tech-challenge)
+[![Build Status](https://travis-ci.org/code-mattclaffey/tech-challenge.png?branch=master)](https://travis-ci.org/code-mattclaffey/tech-challenge)
 
 
 ## What went well
@@ -21,4 +21,11 @@
 
 ## Lighthouse Audit
 
+Performance: 100
+SEO: 100
+Best Practices: 100
+Accessbility: 100
+
 ## Test status
+
+75% coverage
