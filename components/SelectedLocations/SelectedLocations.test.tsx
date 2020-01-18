@@ -19,7 +19,7 @@ describe("<SelectedLocations />", () => {
     });
 
     it("should render one selected city", () => {
-        const { getAllByTestId } = render(
+        const { getAllByTestId, container } = render(
             <App
                 // @ts-ignore
                 selectedLocations={[
@@ -70,6 +70,7 @@ describe("<SelectedLocations />", () => {
         );
 
         expect(getAllByTestId("selected-location").length).toEqual(1);
+        expect(container).toMatchSnapshot();
     });
 
     it("should remove the selected city when the remove button is clicked", () => {

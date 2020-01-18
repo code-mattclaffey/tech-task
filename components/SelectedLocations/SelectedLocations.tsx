@@ -6,6 +6,7 @@ import { Button, Heading } from "@titan-tooling/ui";
 import { Card } from "../Card";
 import { X as CloseIcon } from "react-feather";
 import { LocationsContext } from "../LocationsContext";
+import { calcDateDiffFromToday, formatDateDiff } from '../../helpers/helpers';
 
 type PropsForSelectedLocations = {};
 type PropsForLocation = {
@@ -20,6 +21,7 @@ type PropsForLocation = {
  * @param city "Salford Quays"
  * @param measurements an array of measurements on the air quality
  * @param country "Unitied Kingdom"
+ * @param lastUpdated date format string
  */
 const Location: React.FunctionComponent<PropsForLocation> = ({
     location,
@@ -28,6 +30,10 @@ const Location: React.FunctionComponent<PropsForLocation> = ({
     country
 }) => {
     const { removeSelectedLocation } = useContext(LocationsContext);
+
+    const mostUpdatedMeasurement = measurements.map(measurement => {
+        return measurement.lastUpdated;
+    }).sort().reverse()[0];
 
     return (
         <li className="c-selected-locations__location">
@@ -43,7 +49,7 @@ const Location: React.FunctionComponent<PropsForLocation> = ({
                     <CloseIcon size={30} />
                 </Button>
                 <span className="c-selected-locations__attr u-text--uppercase u-text--small">
-                    Updated and hour ago
+                    {mostUpdatedMeasurement && formatDateDiff(calcDateDiffFromToday(new Date(), new Date(mostUpdatedMeasurement)))}
                 </span>
                 <span className="c-selected-locations__attr c-selected-locations__attr--heading e-heading e-heading--h6">
                     {location}
@@ -64,6 +70,8 @@ const Location: React.FunctionComponent<PropsForLocation> = ({
 
 export const SelectedLocations: React.FunctionComponent<PropsForSelectedLocations> = () => {
     const { selectedLocations } = useContext(LocationsContext);
+
+    if (selectedLocations.length === 0) return <></>;
 
     return (
         <section aria-label="Selected locations">
