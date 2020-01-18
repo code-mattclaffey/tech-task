@@ -60,18 +60,20 @@ export const SelectedLocations: React.FunctionComponent<PropsForSelectedLocation
     const { selectedLocations } = useContext(LocationsContext);
 
     return (
-        <ul className="c-selected-locations">
-            {selectedLocations.map(
-                ({ location, city, measurements, country }) => (
-                    <Location
-                        key={location + city}
-                        city={city}
-                        location={location}
-                        measurements={measurements}
-                        country={country}
-                    />
-                )
-            )}
-        </ul>
+        <section aria-label="Selected locations">
+            <ul className="c-selected-locations">
+                {selectedLocations.map(
+                    ({ location, city, measurements, country }) => (
+                        <Location
+                            key={location + city}
+                            city={city}
+                            location={location}
+                            measurements={measurements}
+                            country={country}
+                        />
+                    )
+                )}
+            </ul>
+        </section>
     );
 };

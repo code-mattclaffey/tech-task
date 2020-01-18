@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { getLocations, getLatestParametersFromCity } from "../../apis/api";
 import { LocationsContext } from '../LocationsContext/LocationsContext';
 
@@ -7,27 +7,12 @@ export const SearchContext = React.createContext({
     searchTerm: "",
     searchResults: [],
     setSearchTerm: () => null,
-    handleKeyUpEvent: (event: any) => event,
+    handleKeyEvent: (event: any) => event,
     resetSearchResults: () => null,
-    selectLocation: (city: string) => city,
-    optionCurrentlyInFocus: 0
+    selectLocation: (city: string) => city
 });
 
 type ProviderProps = {};
-
-const reduceDulplicateCities = (allCities: any, currentCity: any) => {
-    const { city } = currentCity;
-
-    const cityAlreadyExistsInObject = allCities.filter((cityObj: any) => {
-        return cityObj.city === city;
-    });
-
-    if (cityAlreadyExistsInObject.length === 0) {
-        allCities.push(currentCity);
-    }
-
-    return allCities;
-};
 
 export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
     children
@@ -36,40 +21,21 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
 
     const [state, setState] = useState({
         searchTerm: "",
-        searchResults: [],
-        optionCurrentlyInFocus: 0
+        searchResults: []
     });
 
-    useEffect(() => {
-        document.addEventListener('click', (event: any) => {
-            if (!event.target.classList.contains('c-search-suggestions__option')) {
-                resetSearchResults();
-            }
+    const reduceDulplicateCities = (allCities: any, currentCity: any) => {
+        const { city } = currentCity;
+
+        const cityAlreadyExistsInObject = allCities.filter((cityObj: any) => {
+            return cityObj.city === city;
         });
-    }, []);
 
-    const handleArrowDownEvent = () => {
-        const { optionCurrentlyInFocus, searchResults } = state;
-        let newFocusNumber = optionCurrentlyInFocus + 1;
-
-        if (newFocusNumber === searchResults.length) {
-            newFocusNumber = 0;
+        if (cityAlreadyExistsInObject.length === 0) {
+            allCities.push(currentCity);
         }
 
-        setState({ ...state, optionCurrentlyInFocus: newFocusNumber })
-    };
-
-    const handleArrowUpEvent = () => {
-        const { optionCurrentlyInFocus, searchResults } = state;
-        let newFocusNumber = optionCurrentlyInFocus;
-
-        if (newFocusNumber === 0) {
-            newFocusNumber = searchResults.length - 1;
-        } else {
-            newFocusNumber = newFocusNumber - 1;
-        }
-
-        setState({ ...state, optionCurrentlyInFocus: newFocusNumber });
+        return allCities;
     };
 
     const setSearchTerm: any = (event: any) => {
@@ -78,23 +44,8 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         setState({ ...state, searchTerm });
     };
 
-    const handleKeyUpEvent = (event: any) => {
+    const handleKeyEvent = () => {
         const { searchTerm } = state;
-
-        if (event.keyCode === 27) {
-            resetSearchResults();
-            return;
-        }
-
-        if (event.keyCode === 40) {
-            handleArrowDownEvent();
-            return;
-        }
-
-        if (event.keyCode === 38) {
-            handleArrowUpEvent();
-            return;
-        }
 
         if (searchTerm.length === 0) {
             setState({ ...state, searchTerm, searchResults: [] });
@@ -103,7 +54,7 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
 
         getLocations(searchTerm).then(({ results }) => {
             const searchResults = results.reduce(reduceDulplicateCities, []);
-            setState({ ...state, searchTerm, searchResults, optionCurrentlyInFocus: 0 });
+            setState({ ...state, searchTerm, searchResults });
         });
     };
 
@@ -121,7 +72,7 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
     const data = {
         ...state,
         setSearchTerm,
-        handleKeyUpEvent: handleKeyUpEvent,
+        handleKeyEvent: handleKeyEvent,
         resetSearchResults,
         selectLocation
     };
