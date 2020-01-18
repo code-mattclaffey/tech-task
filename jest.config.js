@@ -3,7 +3,10 @@ module.exports = {
     testMatch: ["**/__tests__/**/*.ts?(x)", "**/?(*.)+(test).ts?(x)"],
     globals: {
         'ts-jest': {
-            'tsConfigFile': 'tsconfig.jest.json'
+            tsConfig: 'tsconfig.jest.json',
+            diagnostics: {
+                ignoreCodes: [2531, 2345]
+            }
         }
     }
 };

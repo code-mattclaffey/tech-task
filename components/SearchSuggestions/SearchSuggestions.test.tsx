@@ -1,5 +1,4 @@
 import React from "react";
-import fetchMock from "fetch-mock";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { SearchSuggestions } from ".";
 import { App } from "../App";
@@ -10,10 +9,6 @@ afterEach(() => {
 });
 
 describe("<SearchSuggestions />", () => {
-    beforeEach(() => {
-        fetchMock.reset();
-    });
-
     it("should match snapshot", () => {
         const { container } = render(
             <SearchContextProvider>

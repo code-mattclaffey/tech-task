@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchSuggestions /> should match snapshot 1`] = `
+<div>
+  <div
+    aria-live="polite"
+    class="u-visually-hidden"
+    data-testid="search-results-aria-live"
+    role="status"
+  >
+    There are 2 suggestions. Use the up and down arrows to browse.
+  </div>
+  <div
+    aria-activedescendant="Amsterdam-0"
+    class="c-search-suggestions__results"
+    data-testid="search-results"
+    id="search-results"
+    role="listbox"
+    tabindex="0"
+  >
+    <div
+      class="c-search-suggestions__option c-search-suggestions__option--focus"
+      data-testid="search-option-0"
+      id="Amsterdam-0"
+      role="option"
+      tabindex="-1"
+    >
+      Amsterdam
+    </div>
+    <div
+      class="c-search-suggestions__option"
+      data-testid="search-option-1"
+      id="Badhoevedorp-1"
+      role="option"
+      tabindex="-1"
+    >
+      Badhoevedorp
+    </div>
+  </div>
+</div>
+`;

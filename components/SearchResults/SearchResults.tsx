@@ -38,7 +38,7 @@ const SearchOptions: React.FunctionComponent<SearchOptionProps> = ({
 export const SearchResults: React.FunctionComponent = () => {
     const {
         searchResults,
-        resetSearchResults
+        resetSearchResults,
     } = useContext(SearchContext);
 
     const { selectLocation } = useContext(SearchContext);
@@ -105,12 +105,14 @@ export const SearchResults: React.FunctionComponent = () => {
                 className="u-visually-hidden"
                 role="status"
                 aria-live="polite"
+                data-testid="search-results-aria-live"
             >
                 {searchResults.length &&
-                    `'There are ${searchResults.length} suggestions. Use the up and down arrows to browse.'`}
+                    `There are ${searchResults.length} suggestions. Use the up and down arrows to browse.`}
             </div>
             <div
                 id="search-results"
+                data-testid="search-results"
                 className="c-search-suggestions__results"
                 tabIndex={searchResults.length > 0 ? 0 : -1}
                 role="listbox"

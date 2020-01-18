@@ -6,6 +6,7 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
     action=""
     autocomplete="off"
     class="c-search-suggestions"
+    data-testid="search-form"
   >
     <div
       class="c-input__container c-input__container--has-icon c-input__container--thin"
@@ -52,12 +53,14 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
     <div
       aria-live="polite"
       class="u-visually-hidden"
+      data-testid="search-results-aria-live"
       role="status"
     >
       0
     </div>
     <div
       class="c-search-suggestions__results"
+      data-testid="search-results"
       id="search-results"
       role="listbox"
       tabindex="-1"

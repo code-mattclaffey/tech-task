@@ -6,22 +6,25 @@ import { LocationsContext } from '../LocationsContext/LocationsContext';
 export const SearchContext = React.createContext({
     searchTerm: "",
     searchResults: [],
-    setSearchTerm: () => null,
+    setSearchTerm: (searchTerm: string) => searchTerm,
     handleKeyEvent: (event: any) => event,
     resetSearchResults: () => null,
     selectLocation: (city: string) => city
 });
 
-type ProviderProps = {};
+type ProviderProps = {
+    searchResults?: Array<any>;
+};
 
 export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
-    children
+    children,
+    searchResults,
 }) => {
     const { setSelectedLocations } = useContext(LocationsContext);
 
     const [state, setState] = useState({
         searchTerm: "",
-        searchResults: []
+        searchResults: searchResults || []
     });
 
     const reduceDulplicateCities = (allCities: any, currentCity: any) => {
@@ -38,23 +41,20 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         return allCities;
     };
 
-    const setSearchTerm: any = (event: any) => {
-        event.preventDefault();
-        const searchTerm = event.currentTarget.value;
+    const setSearchTerm = (searchTerm: string) => {
         setState({ ...state, searchTerm });
     };
 
     const handleKeyEvent = () => {
         const { searchTerm } = state;
-
         if (searchTerm.length === 0) {
-            setState({ ...state, searchTerm, searchResults: [] });
+            setState({ ...state, searchResults: [] });
             return;
         }
 
         getLocations(searchTerm).then(({ results }) => {
             const searchResults = results.reduce(reduceDulplicateCities, []);
-            setState({ ...state, searchTerm, searchResults });
+            setState({ ...state, searchResults });
         });
     };
 

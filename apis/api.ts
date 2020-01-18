@@ -8,6 +8,8 @@
 export const getLocations = (searchTerm: string) => {
     const apiUrl = `https://api.openaq.org/v1/locations?city[]=${searchTerm}`;
     
+    console.log('I have been hit');
+
     return fetch(apiUrl)
         .then(response => response.json())
         .catch(error => console.error(error));

@@ -14,13 +14,19 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
         handleKeyEvent,
     } = useContext(SearchContext);
 
+    const handleOnChange = (event: any) => {
+        event.preventDefault();
+        const searchTerm = event.currentTarget.value;
+        setSearchTerm(searchTerm);
+    };
+
     const inputProps = {
         defaultValue: searchTerm,
-        onKeyDown: debounce(handleKeyEvent, 500),
+        onKeyUp: debounce(handleKeyEvent, 500),
         onFocus: handleKeyEvent,
-        onChange: setSearchTerm,
+        onChange: handleOnChange,
         placeholder: "Enter a city name",
-        "data-testid": "search-result-input"
+        "data-testid": "search-result-input",
     };
 
     return (
@@ -29,6 +35,7 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
             className="c-search-suggestions"
             autoComplete="off"
             onSubmit={(event: any) => event.preventDefault()}
+            data-testid="search-form"
         >
             <InputWrapper hasIcon width="thin">
                 <Search size={30} />
