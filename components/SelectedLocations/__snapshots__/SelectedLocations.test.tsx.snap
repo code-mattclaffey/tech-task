@@ -2,8 +2,12 @@
 
 exports[`<SelectedLocations /> should match snapshot 1`] = `
 <div>
-  <ul
-    class="c-selected-locations"
-  />
+  <section
+    aria-label="Selected locations"
+  >
+    <ul
+      class="c-selected-locations"
+    />
+  </section>
 </div>
 `;

@@ -10,13 +10,6 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
     <div
       class="c-input__container c-input__container--has-icon c-input__container--thin"
     >
-      <div
-        aria-live="polite"
-        class="u-visually-hidden"
-        role="status"
-      >
-        0
-      </div>
       <svg
         fill="none"
         height="30"
@@ -57,9 +50,17 @@ exports[`<SearchSuggestions /> should match snapshot 1`] = `
       </label>
     </div>
     <div
+      aria-live="polite"
+      class="u-visually-hidden"
+      role="status"
+    >
+      0
+    </div>
+    <div
       class="c-search-suggestions__results"
       id="search-results"
       role="listbox"
+      tabindex="-1"
     />
   </form>
 </div>
