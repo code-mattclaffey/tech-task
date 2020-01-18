@@ -1,5 +1,5 @@
 # Tech Challenge
-[![Build Status](https://travis-ci.org/code-mattclaffey/tech-challenge.png?branch=master)](https://travis-ci.org/code-mattclaffey/tech-challenge)
+[![Build Status](https://travis-ci.org/code-mattclaffey/tech-task.png?branch=master)](https://travis-ci.org/code-mattclaffey/tech-task)
 
 
 ## What went well
