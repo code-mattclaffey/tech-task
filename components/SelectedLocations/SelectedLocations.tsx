@@ -15,6 +15,12 @@ type PropsForLocation = {
     measurements: Array<any>;
 };
 
+/**
+ * @param location "Manchester"
+ * @param city "Salford Quays"
+ * @param measurements an array of measurements on the air quality
+ * @param country "Unitied Kingdom"
+ */
 const Location: React.FunctionComponent<PropsForLocation> = ({
     location,
     city,

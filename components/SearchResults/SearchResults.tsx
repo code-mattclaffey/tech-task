@@ -10,6 +10,13 @@ type SearchOptionProps = {
     selectLocation: (city: string) => void
 };
 
+/**
+ * 
+ * @param city string
+ * @param index number
+ * @param hasFocus bool
+ * @param selectLocation function that lives in the searchContext
+ */
 const SearchOptions: React.FunctionComponent<SearchOptionProps> = ({
     city,
     index,
@@ -47,11 +54,17 @@ export const SearchResults: React.FunctionComponent = () => {
         optionCurrentlyInFocus: 0
     });
 
+    /**
+     * Reset all the search results and then set the focus state back to default
+     */
     const reset = () => {
         resetSearchResults();
         setState({ optionCurrentlyInFocus: 0 });
     };
 
+    /**
+     * @param city string from the city object that the api responds back with 
+     */
     const handleEnterKey = ({ city }: any) => {
         selectLocation(city);
     };
@@ -78,6 +91,10 @@ export const SearchResults: React.FunctionComponent = () => {
         setState({ optionCurrentlyInFocus: newFocusNumber });
     };
 
+    /**
+     * Delegates which event function to fire based off the keyCode
+     * @param event event dom object
+     */
     const handleKeyEvent = (event: any) => {
         const keyCodeEvents: any = {
             13: () => handleEnterKey(searchResults[state.optionCurrentlyInFocus]),

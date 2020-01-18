@@ -14,6 +14,10 @@ export const SearchSuggestions: React.FunctionComponent<Props> = () => {
         handleKeyEvent,
     } = useContext(SearchContext);
 
+
+    /**
+     * @param event event object
+     */
     const handleOnChange = (event: any) => {
         event.preventDefault();
         const searchTerm = event.currentTarget.value;

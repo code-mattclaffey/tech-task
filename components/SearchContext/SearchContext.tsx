@@ -16,6 +16,10 @@ type ProviderProps = {
     searchResults?: Array<any>;
 };
 
+/**
+ * 
+ * @param searchResults array of city datat that is shared between components
+ */
 export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
     children,
     searchResults,
@@ -27,6 +31,11 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         searchResults: searchResults || []
     });
 
+    /**
+     * 
+     * @param allCities array of cities that are built from the reduce
+     * @param currentCity the current city that is in the current loop
+     */
     const reduceDulplicateCities = (allCities: any, currentCity: any) => {
         const { city } = currentCity;
 
@@ -41,10 +50,17 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         return allCities;
     };
 
+    /**
+     * 
+     * @param searchTerm string
+     */
     const setSearchTerm = (searchTerm: string) => {
         setState({ ...state, searchTerm });
     };
 
+    /**
+     * Used to get the locations based on the search term
+     */
     const handleKeyEvent = () => {
         const { searchTerm } = state;
         if (searchTerm.length === 0) {
@@ -58,10 +74,17 @@ export const SearchContextProvider: React.FunctionComponent<ProviderProps> = ({
         });
     };
 
+    /**
+     * Resets the search results so the dropdown does not appear
+     */
     const resetSearchResults = () => {
         setState({ ...state, searchResults: [] });
     };
 
+    /**
+     * Sets the location based on what was oassed into it
+     * @param city string
+     */
     const selectLocation = (city: string) => {
         getLatestParametersFromCity(city).then(({ results }) => {
             setSelectedLocations(results);

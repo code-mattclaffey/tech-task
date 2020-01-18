@@ -5,6 +5,11 @@ type Props = {
   title?: string
 }
 
+/**
+ * 
+ * @param children react prop to apply elements to live within this card
+ * @param title string page title
+ */
 const Layout: React.FunctionComponent<Props> = ({
   children,
   title = 'This is the default title',
