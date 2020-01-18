@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { SearchSuggestions } from ".";
-import { App } from "../App";
 import { SearchContextProvider } from '../SearchContext';
 
 afterEach(() => {
